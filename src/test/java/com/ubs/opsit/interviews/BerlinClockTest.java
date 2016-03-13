@@ -196,4 +196,74 @@ public class BerlinClockTest extends BerlinClock {
         assert (firstRow.equals("RRRR"));
     }
 
+    @Test
+    public void shouldGetHoursSecondRow1() {
+        String aTime = "00:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getHoursSecondRow(time);
+
+        assert (secondRow.equals("OOOO"));
+    }
+
+    @Test
+    public void shouldGetHoursSecondRow2() {
+        String aTime = "01:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getHoursSecondRow(time);
+
+        assert (secondRow.equals("ROOO"));
+    }
+
+    @Test
+    public void shouldGetHoursSecondRow3() {
+        String aTime = "06:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getHoursSecondRow(time);
+
+        assert (secondRow.equals("ROOO"));
+    }
+
+    @Test
+    public void shouldGetHoursSecondRow4() {
+        String aTime = "10:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getHoursSecondRow(time);
+
+        assert (secondRow.equals("OOOO"));
+    }
+
+    @Test
+    public void shouldGetHoursSecondRow5() {
+        String aTime = "12:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getHoursSecondRow(time);
+
+        assert (secondRow.equals("RROO"));
+    }
+
+    @Test
+    public void shouldGetHoursSecondRow6() {
+        String aTime = "18:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getHoursSecondRow(time);
+
+        assert (secondRow.equals("RRRO"));
+    }
+
+    @Test
+    public void shouldGetHoursSecondRow7() {
+        String aTime = "19:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getHoursSecondRow(time);
+
+        assert (secondRow.equals("RRRR"));
+    }
+
 }
