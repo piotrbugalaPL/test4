@@ -405,4 +405,54 @@ public class BerlinClockTest extends BerlinClock {
 
         assert (firstRow.equals("YYRYYRYYRYY"));
     }
+
+    @Test
+    public void shouldGetMinutesSecondRow0() {
+        String aTime = "00:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getMinutesSecondRow(time);
+
+        assert (secondRow.equals("OOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesSecondRow1() {
+        String aTime = "00:01:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getMinutesSecondRow(time);
+
+        assert (secondRow.equals("YOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesSecondRow7() {
+        String aTime = "00:07:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getMinutesSecondRow(time);
+
+        assert (secondRow.equals("YYOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesSecondRow13() {
+        String aTime = "00:13:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getMinutesSecondRow(time);
+
+        assert (secondRow.equals("YYYO"));
+    }
+
+    @Test
+    public void shouldGetMinutesSecondRow54() {
+        String aTime = "00:54:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getMinutesSecondRow(time);
+
+        assert (secondRow.equals("YYYY"));
+    }
 }

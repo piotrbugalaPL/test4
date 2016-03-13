@@ -109,7 +109,18 @@ public class BerlinClock implements TimeConverter {
     }
 
     protected String getMinutesSecondRow(GregorianCalendar time) {
-        return null;
+        int lamps = time.get(Calendar.MINUTE) % 5;
+        String secondRow = "";
+
+        for (int i = 1; i <= 4; i++) {
+            if (lamps >= i) {
+                secondRow += lamp_yellow;
+            } else {
+                secondRow += lamp_blinks_off;
+            }
+        }
+        return secondRow;
+
     }
 
 }
