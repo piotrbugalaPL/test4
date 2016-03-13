@@ -266,4 +266,143 @@ public class BerlinClockTest extends BerlinClock {
         assert (secondRow.equals("RRRR"));
     }
 
+    @Test
+    public void shouldGetMinutesFirstRow0() {
+        String aTime = "00:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("OOOOOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow1() {
+        String aTime = "00:01:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("OOOOOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow2() {
+        String aTime = "00:02:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("OOOOOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow3() {
+        String aTime = "00:03:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("OOOOOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow4() {
+        String aTime = "00:04:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("OOOOOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow5() {
+        String aTime = "00:05:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("YOOOOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow6() {
+        String aTime = "00:06:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("YOOOOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow10() {
+        String aTime = "00:10:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("YYOOOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow11() {
+        String aTime = "00:11:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("YYOOOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow15() {
+        String aTime = "00:15:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("YYROOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow20() {
+        String aTime = "00:20:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("YYRYOOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow25() {
+        String aTime = "00:25:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("YYRYYOOOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow30() {
+        String aTime = "00:30:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("YYRYYROOOOO"));
+    }
+
+    @Test
+    public void shouldGetMinutesFirstRow59() {
+        String aTime = "00:59:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getMinutesFirstRow(time);
+
+        assert (firstRow.equals("YYRYYRYYRYY"));
+    }
 }

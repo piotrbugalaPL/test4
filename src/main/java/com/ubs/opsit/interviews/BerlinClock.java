@@ -15,6 +15,7 @@ public class BerlinClock implements TimeConverter {
     private static final String lamp_blinks_on = "Y";
     private static final String lamp_blinks_off = "O";
     private static final String lamp_red = "R";
+    private static final String lamp_yellow = "Y";
 
 
     @Override
@@ -89,7 +90,22 @@ public class BerlinClock implements TimeConverter {
     }
 
     protected String getMinutesFirstRow(GregorianCalendar time) {
-        return null;
+        int lamps = time.get(Calendar.MINUTE) / 5;
+        String firstRow = "";
+
+        for (int i = 1; i <= 11; i++) {
+            if (lamps >= i) {
+                if (i % 3 == 0) { // every 3rd lamp means quarter
+                    firstRow += lamp_red;
+                } else {
+                    firstRow += lamp_yellow;
+                }
+            } else {
+                firstRow += lamp_blinks_off;
+            }
+        }
+
+        return firstRow;
     }
 
     protected String getMinutesSecondRow(GregorianCalendar time) {
