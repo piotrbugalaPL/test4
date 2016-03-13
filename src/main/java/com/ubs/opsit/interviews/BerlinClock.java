@@ -6,12 +6,15 @@ import org.slf4j.LoggerFactory;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-
 /**
  * Created by piobug on 2016-03-13.
  */
 public class BerlinClock implements TimeConverter {
     private static final Logger LOG = LoggerFactory.getLogger(BerlinClock.class);
+
+    private static final String lamp_blinks_on = "Y";
+    private static final String lamp_blinks_off = "O";
+    private static final String lamp_red = "R";
 
 
     @Override
@@ -52,13 +55,23 @@ public class BerlinClock implements TimeConverter {
 
     protected String getSeconds(GregorianCalendar time) {
         if ((time.get(Calendar.SECOND) % 2) == 0) {
-            return "Y";
+            return lamp_blinks_on;
         } else
-            return "O";
+            return lamp_blinks_off;
     }
 
     protected String getHoursFirstRow(GregorianCalendar time) {
-        return null;
+        int lamps = time.get(Calendar.HOUR_OF_DAY) / 5;
+        String firstRow = "";
+
+        for (int i = 1; i <= 4; i++) {
+            if (lamps >= i) {
+                firstRow += lamp_red;
+            } else {
+                firstRow += lamp_blinks_off;
+            }
+        }
+        return firstRow;
     }
 
     protected String getHoursSecondRow(GregorianCalendar time) {
