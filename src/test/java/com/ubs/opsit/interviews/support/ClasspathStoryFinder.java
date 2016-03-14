@@ -37,7 +37,7 @@ public final class ClasspathStoryFinder {
 
         List<File> ret = new ArrayList<File>() ;
         for (File f : rootDirsToSearchFrom) {
-            LOG.debug("root3 {}", f.getPath() );
+
             ret.addAll(listFiles(f, regexFileFilter, DirectoryFileFilter.DIRECTORY)) ;
         }
         return ret ;

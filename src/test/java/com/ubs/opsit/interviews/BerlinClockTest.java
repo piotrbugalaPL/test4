@@ -20,6 +20,7 @@ public class BerlinClockTest extends BerlinClock {
         assert (time.get(Calendar.HOUR) == 0);
         assert (time.get(Calendar.MINUTE) == 0);
         assert (time.get(Calendar.SECOND) == 0);
+        assert (time.get(Calendar.DAY_OF_MONTH) == 1);
     }
 
     @Test
@@ -31,6 +32,7 @@ public class BerlinClockTest extends BerlinClock {
         assert (time.get(Calendar.HOUR) == 1);
         assert (time.get(Calendar.MINUTE) == 2);
         assert (time.get(Calendar.SECOND) == 3);
+        assert (time.get(Calendar.DAY_OF_MONTH) == 1);
     }
 
     @Test
@@ -42,6 +44,7 @@ public class BerlinClockTest extends BerlinClock {
         assert (time.get(Calendar.HOUR) == 11);
         assert (time.get(Calendar.MINUTE) == 22);
         assert (time.get(Calendar.SECOND) == 33);
+        assert (time.get(Calendar.DAY_OF_MONTH) == 1);
     }
 
     @Test
@@ -53,6 +56,19 @@ public class BerlinClockTest extends BerlinClock {
         assert (time.get(Calendar.HOUR_OF_DAY) == 23);
         assert (time.get(Calendar.MINUTE) == 59);
         assert (time.get(Calendar.SECOND) == 59);
+        assert (time.get(Calendar.DAY_OF_MONTH) == 1);
+    }
+
+    @Test
+    public void shouldParse5() {
+        String aTime = "24:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+
+        assert (time.get(Calendar.HOUR_OF_DAY) == 0);
+        assert (time.get(Calendar.MINUTE) == 0);
+        assert (time.get(Calendar.SECOND) == 0);
+        assert (time.get(Calendar.DAY_OF_MONTH) == 2);
     }
 
     @Test
@@ -197,6 +213,16 @@ public class BerlinClockTest extends BerlinClock {
     }
 
     @Test
+    public void shouldGetHoursFirstRow9() {
+        String aTime = "24:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String firstRow = getHoursFirstRow(time);
+
+        assert (firstRow.equals("RRRR"));
+    }
+
+    @Test
     public void shouldGetHoursSecondRow1() {
         String aTime = "00:00:00";
 
@@ -259,6 +285,16 @@ public class BerlinClockTest extends BerlinClock {
     @Test
     public void shouldGetHoursSecondRow7() {
         String aTime = "19:00:00";
+
+        GregorianCalendar time = parseTime(aTime);
+        String secondRow = getHoursSecondRow(time);
+
+        assert (secondRow.equals("RRRR"));
+    }
+
+    @Test
+    public void shouldGetHoursSecondRow8() {
+        String aTime = "24:00:00";
 
         GregorianCalendar time = parseTime(aTime);
         String secondRow = getHoursSecondRow(time);
